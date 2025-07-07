@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head><title>SOIT Chatbot MVP</title></head>
+  <body>
+    <h1>School of IT Chatbot</h1>
+    <form method="post">
+      <input type="text" name="question" placeholder="Ask your question">
+      <button type="submit">Submit</button>
+    </form>
+    {% if answer %}
+      <h2>Answer:</h2>
+      <p>{{ answer }}</p>
+    {% endif %}
+  </body>
+</html>
