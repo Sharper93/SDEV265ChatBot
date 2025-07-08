@@ -16,15 +16,6 @@ def bot():
     """Renders Bot Chat window when button is clicked"""
     return render_template("bot.html")
 
-# Home route
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-# Contact Support route
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
