@@ -45,5 +45,15 @@ def index():
             save_to_db(question, answer)
     return render_template("index.html", answer=answer)
 
+@app.route("/bot", methods=["GET", "POST"])
+def bot():
+    answer = None
+    if request.method == "POST":
+        question = request.form.get("question")
+        if question:
+            answer = call_openai(question)
+            save_to_db(question, answer)
+    return render_template("bot.html", answer=answer)
+
 if __name__ == "__main__":
     app.run(debug=True)
