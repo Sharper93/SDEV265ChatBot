@@ -61,15 +61,22 @@ flask run
 ✅ Open your browser at: http://127.0.0.1:5000
 ✅ Enter a question to test the chatbot.
 
+🗂️ Available Routes
+
+✅ / — Main chatbot interface (index.html)
+✅ /bot — Alternative styled chatbot interface (bot.html)
+
 🧭 Project Structure
 
 .
 ├── app.py
 ├── requirements.txt
 ├── .gitignore
+├── .env (not committed)
+├── chatbot.db (SQLite database)
 ├── templates/
-│   └── index.html
-|   └── bot.html
+│   ├── index.html
+│   └── bot.html
 └── venv/
 
 ## Templates
