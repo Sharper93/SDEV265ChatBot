@@ -11,10 +11,17 @@ app = Flask(__name__)
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def call_openai(prompt):
+    system_content = (
+        "You are a helpful chatbot for the Ivy Tech School of IT. "
+        "You ONLY answer questions specifically about Ivy Tech or its School of IT. "
+        "If the question is outside that scope, you must reply exactly with: "
+        "'Sorry, that is out of my scope.'"
+    )
+    
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a helpful School of IT chatbot. Answer questions about the School of IT clearly and helpfully."},
+            {"role": "system", "content": system_content},
             {"role": "user", "content": prompt}
         ]
     )
