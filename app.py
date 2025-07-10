@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
+import sqlite3
 
 load_dotenv()
 
@@ -27,12 +28,21 @@ def call_openai(prompt):
     )
     return response.choices[0].message.content.strip()
 
+def save_to_db(question, answer):
+    conn = sqlite3.connect('chatbot.db')
+    c = conn.cursor()
+    c.execute('INSERT INTO qa_pairs (question, answer) VALUES (?, ?)', (question, answer))
+    conn.commit()
+    conn.close()
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     answer = None
     if request.method == "POST":
         question = request.form.get("question")
-        answer = call_openai(question)
+        if question:
+            answer = call_openai(question)
+            save_to_db(question, answer)
     return render_template("index.html", answer=answer)
 
 if __name__ == "__main__":
