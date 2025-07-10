@@ -69,4 +69,9 @@ flask run
 ├── .gitignore
 ├── templates/
 │   └── index.html
+|   └── bot.html
 └── venv/
+
+## Templates
+- index.html: Main chatbot UI with Bootstrap styling
+- bot.html: Alternative UI prototype with navbar and branding
