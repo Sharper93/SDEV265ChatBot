@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!--Ivy Fav Icon-->
-    <link rel="icon" type="image/x-icon" href="IvyIcon.png">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='IvyIcon.png') }}">
 
     <!--CSS styleing for some nav aspects-->
     <style>
@@ -44,7 +44,7 @@
 
               <li class="nav-item"> <!--Ivy Tech logo Image for Nav-->
                   <a class="navbar-brand" href="{{ url_for('index') }}">
-                  <img src="IvyLogo.png"
+                  <img src="{{ url_for('static', filename='IvyLogo.png') }}"
                       alt="Ivy Tech Logo"
                       width="175"
                       height="51"></a>             
