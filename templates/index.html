@@ -34,6 +34,11 @@
       .nav-link:hover::after {
         width: 100%;
       }
+
+      footer {
+        margin-top: 50px;
+        text-align: center;
+      }
     </style>
   </head>
 
@@ -88,7 +93,7 @@
       </div>
 
 
-      <footer>
+      <footer class="mt-5 text-center">
         <div class="container p-3 rounded mx-auto" style="max-width: 720px; box-shadow: 0 0 20px rgba(25, 135, 84, 0.5);">
           <a href="{{ url_for('admin') }}" class="btn btn-success btn-sm mt-3 my-3">Database Logs</a>
         </div>
