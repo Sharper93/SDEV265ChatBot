@@ -57,7 +57,7 @@ def bot():
 
 @app.route("/admin" methods=["GET", "POST"])
 def admin():
-    conn = sqlite.connect('chatbot.db')
+    conn = sqlite3.connect('chatbot.db')
     c = conn.cursor()
     c.execute('SELECT question, answer FROM qa_pairs')
     qa_pairs = c.fetchall()
