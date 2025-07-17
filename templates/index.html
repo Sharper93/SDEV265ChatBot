@@ -38,6 +38,11 @@
         margin-top: 50px;
         text-align: center;
       }
+      .footer-separator {
+        border-top: 2px solid #198754; /* Bootstrap's "success" green */
+        padding-top: 1rem;
+      }
+
     </style>
   </head>
 
@@ -91,15 +96,14 @@
         </p>
 
         <a href="{{ url_for('bot') }}" class="btn btn-success btn-lg mt-3 my-3">Chat with KODA</a>
-      </div>
-
-    <!--FOOTER-->
-    <footer class="mt-5 text-center">
-        <div class="container p-3 rounded mx-auto" style="max-width: 720px; box-shadow: 0 0 20px rgba(25, 135, 84, 0.5);">
-          <a href="{{ url_for('admin') }}" class="btn btn-success btn-sm mt-3 my-3">Database Logs</a>
+      
+        <!--FOOTER-->
+        <footer class="mt-5 text-center footer-separator"> 
+          <a href="{{ url_for('admin') }}" class="text-success fw-semibold">Database Logs</a>
           <p class="text-muted small">&copy; 2025 Ivy Tech School of IT</p>
-        </div>
-      </footer>
+        </footer>
+
+      </div>
 
 
   </body>
