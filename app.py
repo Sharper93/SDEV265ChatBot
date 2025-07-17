@@ -55,7 +55,7 @@ def bot():
             save_to_db(question, answer)
     return render_template("bot.html", answer=answer)
 
-@app.route("/admin" methods=["GET", "POST"])
+@app.route("/admin", methods=["GET", "POST"])
 def admin():
     conn = sqlite3.connect('chatbot.db')
     c = conn.cursor()
