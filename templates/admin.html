@@ -34,6 +34,15 @@
       .nav-link:hover::after {
         width: 100%;
       }
+
+      footer {
+        margin-top: 50px;
+        text-align: center;
+      }
+      .footer-separator {
+        border-top: 2px solid #198754; /* Bootstrap's "success" green */
+        padding-top: 1rem;
+      }
     </style>
   </head>
 
@@ -45,7 +54,7 @@
 
               <li class="nav-item"> <!--Ivy Tech logo Image for Nav-->
                   <a class="navbar-brand" href="{{ url_for('index') }}">
-                  <img src="IvyLogo.png"
+                  <img src="{{ url_for('static', filename='IvyLogo.png') }}"
                       alt="Ivy Tech Logo"
                       width="175"
                       height="51"></a>             
@@ -71,20 +80,21 @@
 
         <h1 class="text-success my-4">Database Queries</h1>
 
-        <table border="1">
-            <tr>
-                <th>Question</th>
-                <th>Answer</th>
-            </tr>
-            {% for question, answer in qa_pairs %}
-            <tr>
-                <td>{{ question }}</td>
-                <td>{{ answer }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="container">
+          {% for question, answer in qa_pairs %}
+            <div class="card mb-3 border-success shadow-sm">
+              <div class="card-header bg-success text-white fw-bold">
+                Question
+              </div>
+              <div class="card-body">
+                <p class="card-text"><strong>{{ question }}</strong></p>
+                <hr>
+                <p class="card-text text-muted">{{ answer }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
 
-      </div>
 
       <!--FOOTER-->
         <footer class="mt-5 text-center footer-separator"> 
