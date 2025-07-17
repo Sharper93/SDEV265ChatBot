@@ -13,10 +13,10 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def call_openai(prompt):
     system_content = (
-        "You are a helpful chatbot for the Ivy Tech School of IT. "
-        "You ONLY answer questions specifically about Ivy Tech or its School of IT. "
-        "If the question is outside that scope, you must reply exactly with: "
-        "'Sorry, that is out of my scope.'"
+        "You are a helpful chatbot for the Ivy Tech School of IT. You assist both current and prospective students. "
+        "You can answer questions about Ivy Tech, its School of IT, and how to apply to the college. "
+        "If a student asks about a specific class or program, include a helpful link like https://catalog.ivytech.edu/. "
+        "If the question is completely unrelated to Ivy Tech, reply with: 'Sorry, that is out of my scope.'"
     )
     
     response = client.chat.completions.create(
