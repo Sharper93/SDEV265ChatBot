@@ -55,5 +55,14 @@ def bot():
             save_to_db(question, answer)
     return render_template("bot.html", answer=answer)
 
+@app.route("/admin" methods=["GET", "POST"])
+def admin():
+    conn = sqlite.connect('chatbot.db')
+    c = conn.cursor()
+    c.execute('SELECT question, answer FROM qa_pairs')
+    qa_pairs = c.fetchall()
+    conn.close()
+    return render_template("admin.html", qa_pairs=qa_pairs)
+
 if __name__ == "__main__":
     app.run(debug=True)
