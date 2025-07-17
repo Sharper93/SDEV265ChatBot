@@ -42,15 +42,13 @@
       <div class="container p-3 rounded mx-auto" style="max-width: 720px; box-shadow: 0 0 20px rgba(25, 135, 84, 0.5);">
         <nav class="navbar sticky-top bg-body-tertiary py-3 text-md" >
             <ul class="nav">
-              <li class="nav-item">
-                <!--Ivy Tech logo Image for Nav-->
-                <div> 
+
+              <li class="nav-item"> <!--Ivy Tech logo Image for Nav-->
                   <a class="navbar-brand" href="{{ url_for('index') }}">
-                    <img src="Ivy-Tech-Home.png"
-                    alt="Ivy Tech Logo"
-                    width="175"
-                    height="51"> </a>
-                </div>
+                  <img src="Ivy-Tech-Home.png"
+                      alt="Ivy Tech Logo"
+                      width="175"
+                      height="51"></a>             
               </li>
 
               <li class="nav-item">
@@ -58,43 +56,37 @@
               </li>
 
               <li class="nav-item">
-                <a href="https://catalog.ivytech.edu/index.php?catoid=11" target="_blank" rel="noopener noreferrer" class="nav-link text-success fw-semibold">COURSE CATALOG</a>
+                <a href="https://catalog.ivytech.edu/index.php?catoid=11" target="_blank" rel="noopener noreferrer" class="nav-link text-success fw-semibold">COURSE CATELOG</a>
               </li>
 
               <li class="nav-item">
                 <a href="https://www.ivytech.edu/admissions/apply-now/" target="_blank" rel="noopener noreferrer" class="nav-link text-success fw-semibold">APPLY NOW!</a>
               </li>
-
             </ul>
+
         </nav>
       </div>
 
       <div class="container p-3 rounded mx-auto" style="max-width: 720px; box-shadow: 0 0 20px rgba(25, 135, 84, 0.5);">
 
-        <h1 class="text-success my-4">Welcome to Ivy Tech's School of IT Chatbot Hub</h1>
+        <h1 class="text-success my-4">Database Queries</h1>
 
-        <h2 class="mb-4 fs-5 text-center">
-          The School of IT Chatbot is <strong>KODA</strong> — your friendly digital guide to navigating everything 
-          Ivy Tech’s School of IT has to offer.
-        </h2>
+        <table border="1">
+            <tr>
+                <th>Question</th>
+                <th>Answer</th>
+            </tr>
+            {% for question, answer in qa_pairs %}
+            <tr>
+                <td>{{ question }}</td>
+                <td>{{ answer }}</td>
+            </tr>
+            {% endfor %}
+        </table>
 
-        <p class="text-start mx-3 py-3">
-          Whether you're exploring which IT major aligns with your goals, trying to schedule an academic advising session, or preparing for graduation, Koda is here to help every step of the way.
-          From quick questions to important deadlines, Koda makes it easier than ever to stay on track and make informed decisions. Need resources? 
-          Have questions about course planning or application processes? Just ask — Koda's got your back!
-        </p>
-
-        <a href="{{ url_for('bot') }}" class="btn btn-success btn-lg mt-3 my-3">Chat with KODA</a>
       </div>
 
     </div>
-
-
-    <footer>
-      <div class="container p-3 rounded mx-auto" style="max-width: 720px; box-shadow: 0 0 20px rgba(25, 135, 84, 0.5);">
-        <a href="{{ url_for('admin') }}" class="btn btn-success btn-sm mt-3 my-3">Database Logs</a>
-      </div>
-    </footer>
 
   </body>
 </html>
